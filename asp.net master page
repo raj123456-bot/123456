@@ -1,0 +1,210 @@
+Masterpage.master
+<%@ Master Language="C#" AutoEventWireup="true"
+CodeFile="MainMaster.master.cs" Inherits="MainMaster" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+ <title></title>
+ <asp:ContentPlaceHolder ID="head" runat="server">
+ </asp:ContentPlaceHolder>
+ <style type="text/css">
+ .style1 {
+ width: 97%;
+ height: 441px;
+ }
+ .style2 {
+ height: 25px;
+ }
+ .style3 {
+ height: 389px;
+ }
+ .style5 {
+ }
+ .style6 {
+ height: 389px;
+ width: 87px;
+ }
+ .style7 {
+ background-color: #FF5050;
+ }
+ </style>
+</head>
+<body>
+ <form id="form1" runat="server">
+ <div>
+ <table class="style1">
+ <tr>
+ <td bgcolor="#FF66FF" class="style2" colspan="2">This is My
+LOGO--------
+ <asp:Label ID="lblMainMaster" runat="server"
+Text="MainMaster"></asp:Label>
+ </td>
+ </tr>
+ <tr>
+ <td bgcolor="#FF5050" class="style6" valign="top">
+ <span class="style7"><a
+href="Page1.aspx">Page1.aspx</a></span><br />
+ <a href="Page2.aspx">Page2.aspx</a><br />
+ <a href="Page3.aspx">Page3.aspx</a></td>
+ <td bgcolor="White" class="style3" valign="top">
+ <asp:ContentPlaceHolder ID="cphPageContent" runat="server">
+ <p>
+ Under Construction
+ </p>
+ </asp:ContentPlaceHolder>
+ </td>
+ </tr>
+ <tr>
+ <td bgcolor="#FF33CC" class="style5" colspan="2">Copyright
+ND.....(This Footer)</td>
+ </tr>
+ </table>
+ </div>
+ </form>
+</body>
+</html>
+
+Page1.aspx
+<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.master"
+AutoEventWireup="true" CodeFile="Page1.aspx.cs" Inherits="Page1" %>
+<%@ MasterType VirtualPath="~/MainMaster.master" %>
+<asp:Content ID="Content2" runat="server"
+ ContentPlaceHolderID="head">
+ <script language="javascript" type="text/javascript">
+ function ShowAlert()
+ {
+ alert(document.forms[0].<%=TextBox1.UniqueID %>.value);
+ }
+ </script>
+</asp:Content>
+<asp:Content ID="Content1" runat="server"
+ ContentPlaceHolderID="cphPageContent">
+ <p>
+
+ This is Page1 content<asp:TextBox
+ ID="TextBox1" runat="server"></asp:TextBox>
+ &nbsp;<input id="btnSayHello" type="button" value="SayHello"
+onclick="ShowAlert()" />
+ </p>
+ <p>
+ About Page1:-The Story begins like this.......
+ </p>
+</asp:Content>
+<%--<asp:Content ID="Content2" runat="server"
+contentplaceholderid="cphHeader">
+Page1
+</asp:Content>--%>
+
+Page1.aspx.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+public partial class Page1 : System.Web.UI.Page
+{
+ protected void Page_Load(object sender, EventArgs e)
+ {
+ //Label lbl = (Label)Master.FindControl("lblMainMaster");
+ //lbl.Text = "From Page1";
+ Master.LabelInMaster.Text = "From Page1";
+ }
+}
+
+Page2.aspx
+<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.master"
+AutoEventWireup="true" CodeFile="Page2.aspx.cs" Inherits="Page2" %>
+<%@ MasterType VirtualPath="~/MainMaster.master" %>
+<asp:Content ID="Content1" runat="server"
+ContentPlaceHolderID="cphPageContent">
+ <p>
+ This is Page2
+ </p>
+ <p>
+ About Page:-ND
+ </p>
+</asp:Content>
+<%--<asp:Content ID="Content2" runat="server"
+contentplaceholderid="cphHeader">
+Page2
+</asp:Content>--%>
+
+Page2.aspx.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+public partial class Page2 : System.Web.UI.Page
+{
+ protected void Page_Load(object sender, EventArgs e)
+ {
+ //Label lbl = (Label)Master.FindControl("lblMainMaster");
+ //lbl.Text = "From Page2";
+ Master.LabelInMaster.Text = "From Page2";
+ }
+}
+
+Page3.aspx
+<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.master"
+AutoEventWireup="true" CodeFile="Page3.aspx.cs" Inherits="Page3" %>
+<%@ MasterType VirtualPath="~/MainMaster.master" %>
+<%--<asp:Content ID="Content2" runat="server"
+contentplaceholderid="cphHeader">
+Page3
+</asp:Content>--%>
+
+Page3.aspx.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+public partial class Page3 : System.Web.UI.Page
+{
+ protected void Page_Load(object sender, EventArgs e)
+ {
+ //Label lbl = (Label)Master.FindControl("lblMainMaster");
+ //lbl.Text = "From Page3";
+ Master.LabelInMaster.Text = "From Page3";
+ }
+}
+
+
+
+EXAMPLE OF SKINFILE
+a. Skinfile.skin
+<asp:Label runat="server" ForeColor="RED" SkinID="lbltxt" Text="Label">
+</asp:Label>
+<asp:TextBox runat="server" ForeColor="DarkBlue" SkinID="txt" >
+</asp:TextBox>
+<asp:Button runat="server" Text="Button" ForeColor="Chocolate"
+SkinID="btn"/>
+
+Default.aspx
+<%@ Page Language="C#" AutoEventWireup="true" Theme="CommonDesign"
+CodeFile="Default.aspx.cs" Inherits="_Default" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+ <title></title>
+</head>
+<body>
+ <form id="form1" runat="server">
+ <br /><br /><br />
+ <div>
+<asp:Label ID="Label1" runat="server" SkinID="lbltxt" Text="Label">
+</asp:Label>
+ <br />
+<asp:TextBox ID="TextBox1" runat="server" SkinID="txt">
+</asp:TextBox><br />
+ <asp:Button ID="Button1" runat="server" SkinID="btn" Text="Button" />
+ </div>
+ </form>
+</body>
+</html>
