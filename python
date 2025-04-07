@@ -16,7 +16,9 @@ print(data)
 print(imputed data)
 
 
+
 KNN Imputer
+
 from sklearn.impute import KNNTmputer 
 import numpy as np
 
@@ -33,6 +35,8 @@ imputed_data = krn_imputer.fit_transform(data)
 
 print(data)
 print(imputed data)
+
+
 
 Mean Removal
 
@@ -64,6 +68,8 @@ data_scaled data_scaler.fit_transform(input_data)
 
 print("\n Min Max Scaled Data = ", data_scaled)
 
+
+
 Normalization 1
 
 import numpy as np
@@ -75,6 +81,8 @@ input_data = np.array([[3,-1.5,3,-6.4], [0,3,-1.3,4.1], [1,2.3,-2.9,-4.3]])
 data_normalized preprocessing.normalize(input_data, norm = '11')
 
 print("\n L1 Normalized Data = ", data_normalized)
+
+
 
 Binarizing
 
@@ -91,6 +99,7 @@ binary_ages = binarizer.fit_transform(ages)
 print(" Original ages: \n",ages)
 
 print(" Binarized ages: \n", binary_ages)
+
 
 
 Label Encoding using scikit-learn library
@@ -122,6 +131,7 @@ print(blk['Gender'].unique())
 print("Data Frame after Label Encoding: \n")
 
 print(blk)
+
 
 
 Case Study Implementation: Predicting House Prices.
